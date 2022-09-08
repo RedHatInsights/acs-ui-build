@@ -1,11 +1,11 @@
 {
     "acs": {
         "entry": [
-            "/beta/apps/acs/acs.1662570643426.c79f449ed95bfbf7b9a5.js"
+            "/apps/acs/acs.1662673697143.ac549f5fb8cd3119d456.js"
         ],
         "modules": [
-            "/beta/apps/acs/js/412.1662570643467.c79f449ed95bfbf7b9a5.js",
-            "/beta/apps/acs/css/412.818108092ba50b3702dc.css"
+            "/apps/acs/css/src_AppEntry_js.af847cd8220c4bb786ce.css",
+            "/apps/acs/js/src_AppEntry_js.1662673697176.ac549f5fb8cd3119d456.js"
         ]
     }
 }
