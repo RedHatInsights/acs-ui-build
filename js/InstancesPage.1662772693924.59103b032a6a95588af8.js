@@ -2008,4 +2008,4 @@ function statusLabelToValue(statusLabel) {
 /***/ })
 
 }]);
-//# sourceMappingURL=../sourcemaps/InstancesPage.ab17c94677abc9165dffd24912ea249c.js.map
+//# sourceMappingURL=../sourcemaps/InstancesPage.872a7ad67643bf7eaa1d5a0dddf40a7e.js.map
