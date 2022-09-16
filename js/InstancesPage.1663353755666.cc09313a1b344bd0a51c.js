@@ -1390,7 +1390,7 @@ function InstancesPage() {
         dataLabel: "Time created"
       }, (0,_utils_date__WEBPACK_IMPORTED_MODULE_13__.getDateTimeDifference)(instance.created_at)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_table__WEBPACK_IMPORTED_MODULE_5__.Td, {
         isActionCell: true
-      }, instance.status === 'ready' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_table__WEBPACK_IMPORTED_MODULE_5__.ActionsColumn, {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_table__WEBPACK_IMPORTED_MODULE_5__.ActionsColumn, {
         items: [{
           title: 'Details',
           onClick: function onClick(event) {
@@ -2008,4 +2008,4 @@ function statusLabelToValue(statusLabel) {
 /***/ })
 
 }]);
-//# sourceMappingURL=../sourcemaps/InstancesPage.d556ce496fb0744ff845cedc843b46eb.js.map
+//# sourceMappingURL=../sourcemaps/InstancesPage.59c24fe99b596afd76670454ac8e159e.js.map
