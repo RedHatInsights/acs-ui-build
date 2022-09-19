@@ -1250,6 +1250,8 @@ function InstancesPage() {
       setViewingInstance = _useState8[1];
 
   var instances = (data === null || data === void 0 ? void 0 : data.items) || [];
+  var isTableLoading = isFetching && !data;
+  var content = null;
   (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
     var _insights, _insights$chrome, _insights$chrome$appA;
 
@@ -1291,9 +1293,7 @@ function InstancesPage() {
     setFilters({});
   }
 
-  var content = null;
-
-  if (!isFetching && instances.length === 0 && Object.keys(filters).length === 0) {
+  if (instances.length === 0 && Object.keys(filters).length === 0) {
     content = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_4__.EmptyState, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_4__.EmptyStateIcon, {
       icon: _patternfly_react_icons_dist_js_icons_cubes_icon__WEBPACK_IMPORTED_MODULE_20__["default"]
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_4__.Title, {
@@ -1343,7 +1343,9 @@ function InstancesPage() {
       sort: getSortParams('status')
     }, "Status"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_table__WEBPACK_IMPORTED_MODULE_5__.Th, {
       sort: getSortParams('created_at')
-    }, "Time created"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_table__WEBPACK_IMPORTED_MODULE_5__.Th, null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_table__WEBPACK_IMPORTED_MODULE_5__.Tbody, null, !isFetching && instances.length === 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_table__WEBPACK_IMPORTED_MODULE_5__.Tr, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_table__WEBPACK_IMPORTED_MODULE_5__.Td, {
+    }, "Time created"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_table__WEBPACK_IMPORTED_MODULE_5__.Th, null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_table__WEBPACK_IMPORTED_MODULE_5__.Tbody, null, isTableLoading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_table__WEBPACK_IMPORTED_MODULE_5__.Tr, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_table__WEBPACK_IMPORTED_MODULE_5__.Td, {
+      colSpan: 8
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_4__.Bullseye, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_4__.Spinner, null)))), !isTableLoading && instances.length === 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_table__WEBPACK_IMPORTED_MODULE_5__.Tr, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_table__WEBPACK_IMPORTED_MODULE_5__.Td, {
       colSpan: 8
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_4__.Bullseye, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_4__.EmptyState, {
       variant: _patternfly_react_core__WEBPACK_IMPORTED_MODULE_4__.EmptyStateVariant.small
@@ -1355,7 +1357,7 @@ function InstancesPage() {
     }, "No results found"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_4__.EmptyStateBody, null, "Clear all filters and try again."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_4__.Button, {
       variant: "link",
       onClick: onClearFilters
-    }, "Clear all filters"))))) : instances.map(function (instance) {
+    }, "Clear all filters"))))), !isTableLoading && instances.length !== 0 && instances.map(function (instance) {
       var instanceDetailsURL = "/instances/instance/".concat(instance.id);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_table__WEBPACK_IMPORTED_MODULE_5__.Tr, {
         key: instance.name,
@@ -2008,4 +2010,4 @@ function statusLabelToValue(statusLabel) {
 /***/ })
 
 }]);
-//# sourceMappingURL=../sourcemaps/InstancesPage.6f0e889a97363bbf5aa07ecd454d5ebd.js.map
+//# sourceMappingURL=../sourcemaps/InstancesPage.3ae4bfd25bd58dc76b300811892e58dc.js.map
