@@ -812,6 +812,14 @@ function CreateInstanceModal(_ref) {
       isRequestingCreate = _useState6[0],
       setIsRequestingCreate = _useState6[1];
 
+  function onCloseHandler() {
+    // clear all state before closing
+    setErrorMessage(null);
+    setFormValues(defaultFormValues);
+    setIsRequestingCreate(false);
+    onClose();
+  }
+
   function onChangeAvailabilityZones(isSelected, event) {
     var id = event.currentTarget.id;
     setFormValues(function (prevFormValues) {
@@ -879,7 +887,7 @@ function CreateInstanceModal(_ref) {
     variant: _patternfly_react_core__WEBPACK_IMPORTED_MODULE_4__.ModalVariant.small,
     title: "Create ACS instance",
     isOpen: isOpen,
-    onClose: onClose,
+    onClose: onCloseHandler,
     actions: [/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_4__.Button, {
       key: "createInstance",
       variant: "primary",
@@ -889,7 +897,7 @@ function CreateInstanceModal(_ref) {
     }, "Create instance"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_4__.Button, {
       key: "cancel",
       variant: "link",
-      onClick: onClose,
+      onClick: onCloseHandler,
       isDisabled: isRequestingCreate
     }, "Cancel")]
   }, errorMessage && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement("div", {
@@ -2010,4 +2018,4 @@ function statusLabelToValue(statusLabel) {
 /***/ })
 
 }]);
-//# sourceMappingURL=../sourcemaps/InstancesPage.3ae4bfd25bd58dc76b300811892e58dc.js.map
+//# sourceMappingURL=../sourcemaps/InstancesPage.99475ac6832c68de9d9ced8f6d2ba7d3.js.map
