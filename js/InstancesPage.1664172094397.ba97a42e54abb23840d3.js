@@ -2017,4 +2017,4 @@ function statusLabelToValue(statusLabel) {
 /***/ })
 
 }]);
-//# sourceMappingURL=../sourcemaps/InstancesPage.1b3b16e27d8c0cac18b1e8bb70feab64.js.map
+//# sourceMappingURL=../sourcemaps/InstancesPage.765b74801ca8765d5838cfc0db9594d2.js.map
