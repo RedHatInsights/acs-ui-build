@@ -124,7 +124,7 @@ function OverviewPage() {
     hasGutter: true
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.TextContent, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.Text, {
     component: _patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.TextVariants.h1
-  }, "Get started with Red Hat Advanced Cluster Security Manages Service for Kubernetes")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.TextContent, {
+  }, "Get started with Red Hat Advanced Cluster Security Managed Service for Kubernetes")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.TextContent, {
     component: _patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.TextVariants.p,
     className: "pf-u-color-200 pf-u-font-size-lg"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.Text, null, "Fully hosted and managed service for protecting cloud native applications and Kubernetes")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.TextContent, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.Text, {
@@ -224,4 +224,4 @@ module.exports = __webpack_require__.p + "fonts/banner_image.png";
 /***/ })
 
 }]);
-//# sourceMappingURL=../sourcemaps/OverviewPage.8676b1292380d24155085a7867a25ad9.js.map
+//# sourceMappingURL=../sourcemaps/OverviewPage.7ff482aea591666b4079aeadc366e95c.js.map
