@@ -3,7 +3,7 @@
   "node_version": ">=14.0.0",
   "src_repo": "RedHatInsights/acs-ui",
   "src_branch": "main",
-  "src_hash": "f15b90130838ba80eefa4ca7466a23ec0e6fbbb0",
+  "src_hash": "9707c645c74a24c4b56df7028550ef831c406eed",
   "patternfly_dependencies": ["@patternfly/react-core@4.192.7","@patternfly/react-table@4.61.7"],
   "rh_cloud_services_dependencies": ["@redhat-cloud-services/frontend-components@3.7.3","@redhat-cloud-services/frontend-components-notifications@3.2.5","@redhat-cloud-services/frontend-components-utilities@3.2.8"],
 }
