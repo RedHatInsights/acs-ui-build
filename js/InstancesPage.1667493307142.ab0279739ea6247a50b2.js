@@ -823,8 +823,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
-/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js");
+/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
 /* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3__);
@@ -841,7 +841,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 /* eslint-disable react/prop-types */
 
@@ -875,7 +875,19 @@ function CreateInstanceModal(_ref) {
   var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_4__.useState)(false),
       _useState6 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_2__["default"])(_useState5, 2),
       isRequestingCreate = _useState6[0],
-      setIsRequestingCreate = _useState6[1];
+      setIsRequestingCreate = _useState6[1]; // default select a cloud account if there is only one available
+  // @TODO: Make a test for this
+
+
+  (0,react__WEBPACK_IMPORTED_MODULE_4__.useEffect)(function () {
+    if (formValues.aws_account_number === '' && cloudAccountIds.length === 1) {
+      setFormValues(function (prevValues) {
+        return _objectSpread(_objectSpread({}, prevValues), {}, {
+          aws_account_number: cloudAccountIds[0]
+        });
+      });
+    }
+  }, [cloudAccountIds]);
 
   function onCloseHandler() {
     // clear all state before closing
@@ -890,7 +902,7 @@ function CreateInstanceModal(_ref) {
   }
 
   function _onRequestCreateHandler() {
-    _onRequestCreateHandler = (0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__["default"])( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default().mark(function _callee() {
+    _onRequestCreateHandler = (0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__["default"])( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default().mark(function _callee() {
       var result, _errorMessage;
 
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default().wrap(function _callee$(_context) {
@@ -998,6 +1010,21 @@ function CreateInstanceModal(_ref) {
     title: "Amazon Web Services",
     isSelected: formValues.cloud_provider === 'aws'
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_5__.FormGroup, {
+    label: "AWS account number",
+    fieldId: "aws_account_number"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement(_components_SelectSingle__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    id: "aws_account_number",
+    value: formValues.aws_account_number,
+    handleSelect: onChangeAWSAccountNumber,
+    placeholderText: cloudAccountIds.length === 0 ? 'No accounts available' : 'Select an AWS Account',
+    menuAppendTo: "parent",
+    isDisabled: cloudAccountIds.length === 0
+  }, cloudAccountIds.map(function (cloudAccountId) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_5__.SelectOption, {
+      key: cloudAccountId,
+      value: cloudAccountId
+    }, cloudAccountId);
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_5__.FormGroup, {
     label: "Cloud region",
     isRequired: true,
     fieldId: "region"
@@ -1027,21 +1054,6 @@ function CreateInstanceModal(_ref) {
     buttonId: "multi",
     isSelected: formValues.availabilityZones === 'multi',
     onChange: onChangeAvailabilityZones
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_5__.FormGroup, {
-    label: "AWS account number",
-    fieldId: "aws_account_number"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement(_components_SelectSingle__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    id: "aws_account_number",
-    value: formValues.aws_account_number,
-    handleSelect: onChangeAWSAccountNumber,
-    placeholderText: cloudAccountIds.length === 0 ? 'No accounts available' : 'Select an AWS Account',
-    menuAppendTo: "parent",
-    isDisabled: cloudAccountIds.length === 0
-  }, cloudAccountIds.map(function (cloudAccountId) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_5__.SelectOption, {
-      key: cloudAccountId,
-      value: cloudAccountId
-    }, cloudAccountId);
   })))));
 }
 
@@ -2132,4 +2144,4 @@ function statusLabelToValue(statusLabel) {
 /***/ })
 
 }]);
-//# sourceMappingURL=../sourcemaps/InstancesPage.a99b8f7ee3bd082a04e54239a107d2ae.js.map
+//# sourceMappingURL=../sourcemaps/InstancesPage.380c9d2d1adc37896f590cea7bcada11.js.map
