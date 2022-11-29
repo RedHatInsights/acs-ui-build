@@ -783,7 +783,7 @@ function InstanceDetailsPage() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_2__.Card, {
     className: "marketing-video"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("iframe", {
-    src: "https://www.youtube.com/embed/wMJMFIeVsw8",
+    src: "https://www.youtube.com/embed/lFBFW3HmgsA",
     title: "Advanced Cluster Security in 2 Minutes",
     frameBorder: "0",
     allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture",
@@ -853,7 +853,7 @@ var defaultFormValues = {
   cloud_provider: 'aws',
   region: 'us-east-1',
   availabilityZones: 'multi',
-  aws_account_number: ''
+  cloud_account_id: ''
 };
 
 function CreateInstanceModal(_ref) {
@@ -880,10 +880,10 @@ function CreateInstanceModal(_ref) {
 
 
   (0,react__WEBPACK_IMPORTED_MODULE_4__.useEffect)(function () {
-    if (formValues.aws_account_number === '' && cloudAccountIds.length === 1) {
+    if (formValues.cloud_account_id === '' && cloudAccountIds.length === 1) {
       setFormValues(function (prevValues) {
         return _objectSpread(_objectSpread({}, prevValues), {}, {
-          aws_account_number: cloudAccountIds[0]
+          cloud_account_id: cloudAccountIds[0]
         });
       });
     }
@@ -955,7 +955,7 @@ function CreateInstanceModal(_ref) {
   function onChangeAWSAccountNumber(id, selection) {
     setFormValues(function (prevFormValues) {
       return _objectSpread(_objectSpread({}, prevFormValues), {}, {
-        aws_account_number: selection
+        cloud_account_id: selection
       });
     });
   }
@@ -1011,10 +1011,10 @@ function CreateInstanceModal(_ref) {
     isSelected: formValues.cloud_provider === 'aws'
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_5__.FormGroup, {
     label: "AWS account number",
-    fieldId: "aws_account_number"
+    fieldId: "cloud_account_id"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement(_components_SelectSingle__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    id: "aws_account_number",
-    value: formValues.aws_account_number,
+    id: "cloud_account_id",
+    value: formValues.cloud_account_id,
     handleSelect: onChangeAWSAccountNumber,
     placeholderText: cloudAccountIds.length === 0 ? 'No accounts available' : 'Select an AWS Account',
     menuAppendTo: "parent",
@@ -1397,7 +1397,7 @@ function InstancesPage() {
       cloud_provider: values.cloud_provider,
       name: values.name,
       multi_az: values.availabilityZones === 'multi',
-      aws_account_number: values.aws_account_number
+      cloud_account_id: values.cloud_account_id
     });
     return response["catch"](function (error) {
       return error;
@@ -2144,4 +2144,4 @@ function statusLabelToValue(statusLabel) {
 /***/ })
 
 }]);
-//# sourceMappingURL=../sourcemaps/InstancesPage.380c9d2d1adc37896f590cea7bcada11.js.map
+//# sourceMappingURL=../sourcemaps/InstancesPage.2280c4fe3e6a8a5c517508fd32779045.js.map
