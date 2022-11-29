@@ -129,7 +129,7 @@ function SelectSingle(_ref) {
       _ref$placeholderText = _ref.placeholderText,
       placeholderText = _ref$placeholderText === void 0 ? '' : _ref$placeholderText,
       _ref$menuAppendTo = _ref.menuAppendTo,
-      menuAppendTo = _ref$menuAppendTo === void 0 ? '' : _ref$menuAppendTo;
+      menuAppendTo = _ref$menuAppendTo === void 0 ? undefined : _ref$menuAppendTo;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
       _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState, 2),
@@ -2144,4 +2144,4 @@ function statusLabelToValue(statusLabel) {
 /***/ })
 
 }]);
-//# sourceMappingURL=../sourcemaps/InstancesPage.89a7d17cb1a51d5eb907b2ec926f4fbe.js.map
+//# sourceMappingURL=../sourcemaps/InstancesPage.f39e7c07f0d0628f46871e882dd9cf06.js.map
