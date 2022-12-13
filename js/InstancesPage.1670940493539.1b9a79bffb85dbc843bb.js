@@ -1322,7 +1322,7 @@ var defaultSortOption = {
  */
 
 function InstancesPage() {
-  var _cloudAccountsData$cl;
+  var _cloudAccountsData$cl, _data$total;
 
   var history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useHistory)();
 
@@ -1384,6 +1384,7 @@ function InstancesPage() {
 
   var instances = (data === null || data === void 0 ? void 0 : data.items) || [];
   var isTableLoading = isFetching && !data;
+  var totalInstances = (_data$total = data === null || data === void 0 ? void 0 : data.total) !== null && _data$total !== void 0 ? _data$total : 0;
   var content = null;
   (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
     var _insights, _insights$chrome, _insights$chrome$appA;
@@ -1456,7 +1457,7 @@ function InstancesPage() {
         "default": 'alignRight'
       }
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_4__.Pagination, {
-      itemCount: instances.length,
+      itemCount: totalInstances,
       perPage: perPage,
       page: page,
       onSetPage: onSetPage,
@@ -1547,11 +1548,11 @@ function InstancesPage() {
         "default": 'alignRight'
       }
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_4__.Pagination, {
-      itemCount: instances.length,
+      itemCount: totalInstances,
       perPage: perPage,
       page: page,
       onSetPage: onSetPage,
-      widgetId: "acs-instances-top-pagination",
+      widgetId: "acs-instances-bottom-pagination",
       onPerPageSelect: onPerPageSelect
     })))));
   }
@@ -2144,4 +2145,4 @@ function statusLabelToValue(statusLabel) {
 /***/ })
 
 }]);
-//# sourceMappingURL=../sourcemaps/InstancesPage.e73b8f6b17e4f0bfafd154da1f25b2f6.js.map
+//# sourceMappingURL=../sourcemaps/InstancesPage.0de19e81fce10e01c77c814d0259d02c.js.map
