@@ -1,11 +1,11 @@
 {
     "acs": {
         "entry": [
-            "/beta/apps/acs/acs.1671091415630.99c1ba3cb16aa63b5be7.js"
+            "/beta/apps/acs/acs.1673472415314.86f829195fe1f36b00fc.js"
         ],
         "modules": [
             "/beta/apps/acs/css/src_AppEntry_js-node_modules_redhat-cloud-services_frontend-components_esm_Main_main_css-node-436b31.a6b44dcfaf8e42605c9e.css",
-            "/beta/apps/acs/js/src_AppEntry_js-node_modules_redhat-cloud-services_frontend-components_esm_Main_main_css-node-436b31.1671091415668.99c1ba3cb16aa63b5be7.js"
+            "/beta/apps/acs/js/src_AppEntry_js-node_modules_redhat-cloud-services_frontend-components_esm_Main_main_css-node-436b31.1673472415344.86f829195fe1f36b00fc.js"
         ]
     }
 }

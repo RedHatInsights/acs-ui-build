@@ -1105,6 +1105,11 @@ function DeleteInstanceModal(_ref) {
       isRequestingDelete = _useState4[0],
       setIsRequestingDelete = _useState4[1];
 
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_4__.useState)(''),
+      _useState6 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_useState5, 2),
+      errorMessage = _useState6[0],
+      setErrorMessage = _useState6[1];
+
   function onRequestDeleteHandler() {
     return _onRequestDeleteHandler.apply(this, arguments);
   }
@@ -1117,20 +1122,22 @@ function DeleteInstanceModal(_ref) {
           switch (_context.prev = _context.next) {
             case 0:
               setIsRequestingDelete(true);
-              _context.next = 3;
+              setErrorMessage('');
+              _context.next = 4;
               return onRequestDelete(instance.id);
 
-            case 3:
+            case 4:
               result = _context.sent;
               setIsRequestingDelete(false);
 
-              if (result.error) {// Do something
+              if (result.isAxiosError) {
+                setErrorMessage(result.message || 'An unanticapted error occurred. Please try again. If this error persists, please contact support.');
               } else {
                 setInputValue('');
                 onClose();
               }
 
-            case 6:
+            case 7:
             case "end":
               return _context.stop();
           }
@@ -1189,7 +1196,11 @@ function DeleteInstanceModal(_ref) {
     onChange: setInputValue
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_3__.HelperText, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_3__.HelperTextItem, null, "Type ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement("span", {
     className: "pf-u-font-weight-bold"
-  }, instance.name), ' ', "to confirm."))));
+  }, instance.name), ' ', "to confirm.")), errorMessage.length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_3__.Alert, {
+    isInline: true,
+    variant: _patternfly_react_core__WEBPACK_IMPORTED_MODULE_3__.AlertVariant.danger,
+    title: errorMessage
+  })));
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DeleteInstanceModal);
@@ -2146,4 +2157,4 @@ function statusLabelToValue(statusLabel) {
 /***/ })
 
 }]);
-//# sourceMappingURL=../sourcemaps/InstancesPage.324d004c7cd46fee540c1d1cd50e01c4.js.map
+//# sourceMappingURL=../sourcemaps/InstancesPage.4af163cc40299af48d8993c73dceb72f.js.map
