@@ -83,7 +83,7 @@ function InstanceDetailsList(_ref) {
   var instance = _ref.instance;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionList, {
     isHorizontal: true
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListGroup, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListTerm, null, "Cloud provider"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListDescription, null, (0,_utils_cloudProvider__WEBPACK_IMPORTED_MODULE_3__.cloudProviderValueToLabel)(instance.cloud_provider))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListGroup, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListTerm, null, "Region"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListDescription, null, (0,_utils_region__WEBPACK_IMPORTED_MODULE_4__.regionValueToLabel)(instance.region))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListGroup, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListTerm, null, "ID"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListDescription, null, instance.id)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListGroup, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListTerm, null, "Owner"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListDescription, null, instance.owner)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListGroup, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListTerm, null, "Time created"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListDescription, null, (0,_utils_date__WEBPACK_IMPORTED_MODULE_2__.getDateTime)(instance.created_at))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListGroup, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListTerm, null, "Time updated"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListDescription, null, (0,_utils_date__WEBPACK_IMPORTED_MODULE_2__.getDateTime)(instance.updated_at))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListGroup, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListTerm, null, "Central API Endpoint"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListDescription, null, instance.centralDataURL)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListGroup, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListTerm, null, "Central UI"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListDescription, null, instance.centralUIURL)));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListGroup, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListTerm, null, "Cloud provider"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListDescription, null, (0,_utils_cloudProvider__WEBPACK_IMPORTED_MODULE_3__.cloudProviderValueToLabel)(instance.cloud_provider))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListGroup, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListTerm, null, "Region"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListDescription, null, (0,_utils_region__WEBPACK_IMPORTED_MODULE_4__.regionValueToLabel)(instance.region))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListGroup, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListTerm, null, "ID"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListDescription, null, instance.id)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListGroup, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListTerm, null, "Owner"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListDescription, null, instance.owner)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListGroup, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListTerm, null, "Time created"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListDescription, null, (0,_utils_date__WEBPACK_IMPORTED_MODULE_2__.getDateTime)(instance.created_at))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListGroup, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListTerm, null, "Time updated"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListDescription, null, (0,_utils_date__WEBPACK_IMPORTED_MODULE_2__.getDateTime)(instance.updated_at))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListGroup, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListTerm, null, "Central API endpoint (Sensor mTLS)"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListDescription, null, instance.centralDataURL || '-')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListGroup, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListTerm, null, "Central instance (UI, roxctl)"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListDescription, null, instance.centralUIURL || '-')));
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (InstanceDetailsList);
@@ -762,6 +762,7 @@ function InstanceDetailsPage() {
     variant: _patternfly_react_core__WEBPACK_IMPORTED_MODULE_2__.ButtonVariant.primary,
     component: "a",
     href: instance.centralUIURL,
+    isDisabled: !instance.centralUIURL,
     target: "_blank"
   }, "Open ACS Console")))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_2__.FlexItem, {
     flex: {
@@ -1009,7 +1010,7 @@ function CreateInstanceModal(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_5__.Tile, {
     title: "Amazon Web Services",
     isSelected: formValues.cloud_provider === 'aws'
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_5__.FormGroup, {
+  })), cloudAccountIds.length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_5__.FormGroup, {
     label: "AWS account number",
     fieldId: "cloud_account_id"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement(_components_SelectSingle__WEBPACK_IMPORTED_MODULE_7__["default"], {
@@ -1104,6 +1105,11 @@ function DeleteInstanceModal(_ref) {
       isRequestingDelete = _useState4[0],
       setIsRequestingDelete = _useState4[1];
 
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_4__.useState)(''),
+      _useState6 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_useState5, 2),
+      errorMessage = _useState6[0],
+      setErrorMessage = _useState6[1];
+
   function onRequestDeleteHandler() {
     return _onRequestDeleteHandler.apply(this, arguments);
   }
@@ -1116,20 +1122,22 @@ function DeleteInstanceModal(_ref) {
           switch (_context.prev = _context.next) {
             case 0:
               setIsRequestingDelete(true);
-              _context.next = 3;
+              setErrorMessage('');
+              _context.next = 4;
               return onRequestDelete(instance.id);
 
-            case 3:
+            case 4:
               result = _context.sent;
               setIsRequestingDelete(false);
 
-              if (result.error) {// Do something
+              if (result.isAxiosError) {
+                setErrorMessage(result.message || 'An unanticapted error occurred. Please try again. If this error persists, please contact support.');
               } else {
                 setInputValue('');
                 onClose();
               }
 
-            case 6:
+            case 7:
             case "end":
               return _context.stop();
           }
@@ -1188,7 +1196,11 @@ function DeleteInstanceModal(_ref) {
     onChange: setInputValue
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_3__.HelperText, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_3__.HelperTextItem, null, "Type ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement("span", {
     className: "pf-u-font-weight-bold"
-  }, instance.name), ' ', "to confirm."))));
+  }, instance.name), ' ', "to confirm.")), errorMessage.length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_3__.Alert, {
+    isInline: true,
+    variant: _patternfly_react_core__WEBPACK_IMPORTED_MODULE_3__.AlertVariant.danger,
+    title: errorMessage
+  })));
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DeleteInstanceModal);
@@ -1322,7 +1334,7 @@ var defaultSortOption = {
  */
 
 function InstancesPage() {
-  var _cloudAccountsData$cl;
+  var _cloudAccountsData$cl, _data$total;
 
   var history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useHistory)();
 
@@ -1384,6 +1396,7 @@ function InstancesPage() {
 
   var instances = (data === null || data === void 0 ? void 0 : data.items) || [];
   var isTableLoading = isFetching && !data;
+  var totalInstances = (_data$total = data === null || data === void 0 ? void 0 : data.total) !== null && _data$total !== void 0 ? _data$total : 0;
   var content = null;
   (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
     var _insights, _insights$chrome, _insights$chrome$appA;
@@ -1456,7 +1469,7 @@ function InstancesPage() {
         "default": 'alignRight'
       }
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_4__.Pagination, {
-      itemCount: instances.length,
+      itemCount: totalInstances,
       perPage: perPage,
       page: page,
       onSetPage: onSetPage,
@@ -1547,11 +1560,11 @@ function InstancesPage() {
         "default": 'alignRight'
       }
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_4__.Pagination, {
-      itemCount: instances.length,
+      itemCount: totalInstances,
       perPage: perPage,
       page: page,
       onSetPage: onSetPage,
-      widgetId: "acs-instances-top-pagination",
+      widgetId: "acs-instances-bottom-pagination",
       onPerPageSelect: onPerPageSelect
     })))));
   }
@@ -2144,4 +2157,4 @@ function statusLabelToValue(statusLabel) {
 /***/ })
 
 }]);
-//# sourceMappingURL=../sourcemaps/InstancesPage.ceded7de263e16b6b6fa8b15d8159220.js.map
+//# sourceMappingURL=../sourcemaps/InstancesPage.915c04a41c6275d7a6e3cc2bd9c4be8a.js.map
