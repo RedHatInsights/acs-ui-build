@@ -1058,16 +1058,15 @@ function CreateInstanceModal(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_5__.Tile, {
     title: "Amazon Web Services",
     isSelected: formValues.cloud_provider === 'aws'
-  })), cloudAccountIds.length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_5__.FormGroup, {
+  })), cloudAccountIds.length > 1 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_5__.FormGroup, {
     label: "AWS account number",
     fieldId: "cloud_account_id"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement(_components_SelectSingle__WEBPACK_IMPORTED_MODULE_7__["default"], {
     id: "cloud_account_id",
     value: formValues.cloud_account_id,
     handleSelect: onChangeAWSAccountNumber,
-    placeholderText: cloudAccountIds.length === 0 ? 'No accounts available' : 'Select an AWS Account',
-    menuAppendTo: "parent",
-    isDisabled: cloudAccountIds.length === 0
+    placeholderText: "Select an AWS Account",
+    menuAppendTo: "parent"
   }, cloudAccountIds.map(function (cloudAccountId) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_5__.SelectOption, {
       key: cloudAccountId,
@@ -2221,4 +2220,4 @@ function statusLabelToValue(statusLabel) {
 /***/ })
 
 }]);
-//# sourceMappingURL=../sourcemaps/InstancesPage.e5ffc25b4f031c7cb785e8dfcdb0a246.js.map
+//# sourceMappingURL=../sourcemaps/InstancesPage.8077be38965ad8064e6c4fc151ccaa48.js.map
