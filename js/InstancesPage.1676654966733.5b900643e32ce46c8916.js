@@ -559,6 +559,48 @@ function useInstances(options) {
 
 /***/ }),
 
+/***/ "./src/hooks/useAnalytics.js":
+/*!***********************************!*\
+  !*** ./src/hooks/useAnalytics.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _redhat_cloud_services_frontend_components_useChrome__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @redhat-cloud-services/frontend-components/useChrome */ "./node_modules/@redhat-cloud-services/frontend-components/esm/useChrome/useChrome.js");
+ // the chrome hook assumes we're in a prod env because local development points
+// to prod.foo.redhat.com and uses the wrong write key when initializing segment.
+// to avoid this we can set chrome:analytics:dev to true in local storage
+// to initialize segment with the correct write key and test events in dev
+// one caveat to note is we cant prevent sending the initial page/group/identity events
+// to the wrong segment environment when segment is initialized before the key is set
+
+function useAnalytics() {
+  var _useChrome = (0,_redhat_cloud_services_frontend_components_useChrome__WEBPACK_IMPORTED_MODULE_0__["default"])(),
+      analytics = _useChrome.analytics;
+
+  function analyticsTrack(event) {
+    var isProdEnv = "development" === 'production';
+    var isDevEnv = "development" === 'development';
+    var analyticsDevKeySet = localStorage.getItem('chrome:analytics:dev') === 'true';
+
+    if (isProdEnv || isDevEnv && analyticsDevKeySet) {
+      analytics.track(event);
+    }
+  }
+
+  return {
+    analyticsTrack: analyticsTrack
+  };
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useAnalytics);
+
+/***/ }),
+
 /***/ "./src/hooks/usePagination.js":
 /*!************************************!*\
   !*** ./src/hooks/usePagination.js ***!
@@ -835,6 +877,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _patternfly_react_core__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _utils_region__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/region */ "./src/utils/region.js");
 /* harmony import */ var _components_SelectSingle__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/SelectSingle */ "./src/components/SelectSingle.js");
+/* harmony import */ var _hooks_useAnalytics__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../hooks/useAnalytics */ "./src/hooks/useAnalytics.js");
 
 
 
@@ -845,6 +888,7 @@ function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (O
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 /* eslint-disable react/prop-types */
+
 
 
 
@@ -876,7 +920,10 @@ function CreateInstanceModal(_ref) {
   var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_4__.useState)(false),
       _useState6 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_2__["default"])(_useState5, 2),
       isRequestingCreate = _useState6[0],
-      setIsRequestingCreate = _useState6[1]; // default select a cloud account if there is only one available
+      setIsRequestingCreate = _useState6[1];
+
+  var _useAnalytics = (0,_hooks_useAnalytics__WEBPACK_IMPORTED_MODULE_8__["default"])(),
+      analyticsTrack = _useAnalytics.analyticsTrack; // default select a cloud account if there is only one available
   // @TODO: Make a test for this
 
 
@@ -910,11 +957,12 @@ function CreateInstanceModal(_ref) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
+              analyticsTrack('create-instance-form-submitted');
               setIsRequestingCreate(true);
-              _context.next = 3;
+              _context.next = 4;
               return onRequestCreate(formValues);
 
-            case 3:
+            case 4:
               result = _context.sent;
               setIsRequestingCreate(false);
 
@@ -926,7 +974,7 @@ function CreateInstanceModal(_ref) {
                 onClose();
               }
 
-            case 6:
+            case 7:
             case "end":
               return _context.stop();
           }
@@ -1081,11 +1129,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _patternfly_react_core__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "webpack/sharing/consume/default/react/react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _hooks_useAnalytics__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../hooks/useAnalytics */ "./src/hooks/useAnalytics.js");
 
 
 
 
 /* eslint-disable react/prop-types */
+
 
 
 
@@ -1110,6 +1160,9 @@ function DeleteInstanceModal(_ref) {
       errorMessage = _useState6[0],
       setErrorMessage = _useState6[1];
 
+  var _useAnalytics = (0,_hooks_useAnalytics__WEBPACK_IMPORTED_MODULE_5__["default"])(),
+      analyticsTrack = _useAnalytics.analyticsTrack;
+
   function onRequestDeleteHandler() {
     return _onRequestDeleteHandler.apply(this, arguments);
   }
@@ -1123,10 +1176,11 @@ function DeleteInstanceModal(_ref) {
             case 0:
               setIsRequestingDelete(true);
               setErrorMessage('');
-              _context.next = 4;
+              analyticsTrack('delete-instance-form-submitted');
+              _context.next = 5;
               return onRequestDelete(instance.id);
 
-            case 4:
+            case 5:
               result = _context.sent;
               setIsRequestingDelete(false);
 
@@ -1137,7 +1191,7 @@ function DeleteInstanceModal(_ref) {
                 onClose();
               }
 
-            case 7:
+            case 8:
             case "end":
               return _context.stop();
           }
@@ -1271,30 +1325,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "webpack/sharing/consume/default/react-router-dom/react-router-dom");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _redhat_cloud_services_frontend_components_Main__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! @redhat-cloud-services/frontend-components/Main */ "./node_modules/@redhat-cloud-services/frontend-components/esm/Main/Main.js");
-/* harmony import */ var _redhat_cloud_services_frontend_components_PageHeader__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! @redhat-cloud-services/frontend-components/PageHeader */ "./node_modules/@redhat-cloud-services/frontend-components/esm/PageHeader/PageHeader.js");
-/* harmony import */ var _redhat_cloud_services_frontend_components_PageHeader__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @redhat-cloud-services/frontend-components/PageHeader */ "./node_modules/@redhat-cloud-services/frontend-components/esm/PageHeader/PageHeaderTitle.js");
+/* harmony import */ var _redhat_cloud_services_frontend_components_Main__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! @redhat-cloud-services/frontend-components/Main */ "./node_modules/@redhat-cloud-services/frontend-components/esm/Main/Main.js");
+/* harmony import */ var _redhat_cloud_services_frontend_components_PageHeader__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @redhat-cloud-services/frontend-components/PageHeader */ "./node_modules/@redhat-cloud-services/frontend-components/esm/PageHeader/PageHeader.js");
+/* harmony import */ var _redhat_cloud_services_frontend_components_PageHeader__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! @redhat-cloud-services/frontend-components/PageHeader */ "./node_modules/@redhat-cloud-services/frontend-components/esm/PageHeader/PageHeaderTitle.js");
 /* harmony import */ var _patternfly_react_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @patternfly/react-core */ "webpack/sharing/consume/default/@patternfly/react-core/@patternfly/react-core?c1f1");
 /* harmony import */ var _patternfly_react_core__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _patternfly_react_table__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @patternfly/react-table */ "webpack/sharing/consume/default/@patternfly/react-table/@patternfly/react-table");
 /* harmony import */ var _patternfly_react_table__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_patternfly_react_table__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _patternfly_react_icons_dist_js_icons_cubes_icon__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @patternfly/react-icons/dist/js/icons/cubes-icon */ "./node_modules/@patternfly/react-icons/dist/js/icons/cubes-icon.js");
-/* harmony import */ var _patternfly_react_icons_dist_js_icons_search_icon__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @patternfly/react-icons/dist/js/icons/search-icon */ "./node_modules/@patternfly/react-icons/dist/js/icons/search-icon.js");
+/* harmony import */ var _patternfly_react_icons_dist_js_icons_cubes_icon__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @patternfly/react-icons/dist/js/icons/cubes-icon */ "./node_modules/@patternfly/react-icons/dist/js/icons/cubes-icon.js");
+/* harmony import */ var _patternfly_react_icons_dist_js_icons_search_icon__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! @patternfly/react-icons/dist/js/icons/search-icon */ "./node_modules/@patternfly/react-icons/dist/js/icons/search-icon.js");
 /* harmony import */ var _hooks_usePagination__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../hooks/usePagination */ "./src/hooks/usePagination.js");
 /* harmony import */ var _hooks_apis_useInstances__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../hooks/apis/useInstances */ "./src/hooks/apis/useInstances.js");
 /* harmony import */ var _hooks_apis_useCreateInstance__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../hooks/apis/useCreateInstance */ "./src/hooks/apis/useCreateInstance.js");
 /* harmony import */ var _hooks_apis_useDeleteInstance__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../hooks/apis/useDeleteInstance */ "./src/hooks/apis/useDeleteInstance.js");
 /* harmony import */ var _hooks_apis_useCloudAccounts__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../hooks/apis/useCloudAccounts */ "./src/hooks/apis/useCloudAccounts.js");
-/* harmony import */ var _CreateInstanceModal__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./CreateInstanceModal */ "./src/routes/InstancesPage/CreateInstanceModal.js");
-/* harmony import */ var _DeleteInstanceModal__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./DeleteInstanceModal */ "./src/routes/InstancesPage/DeleteInstanceModal.js");
-/* harmony import */ var _InstanceDetailsDrawer__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./InstanceDetailsDrawer */ "./src/routes/InstancesPage/InstanceDetailsDrawer.js");
-/* harmony import */ var _utils_date__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../utils/date */ "./src/utils/date.js");
-/* harmony import */ var _components_Status__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../components/Status */ "./src/components/Status.js");
-/* harmony import */ var _InstancesToolbarSearchFilter__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./InstancesToolbarSearchFilter */ "./src/routes/InstancesPage/InstancesToolbarSearchFilter.js");
-/* harmony import */ var _hooks_useTableSort__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../hooks/useTableSort */ "./src/hooks/useTableSort.js");
-/* harmony import */ var _utils_region__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../../utils/region */ "./src/utils/region.js");
-/* harmony import */ var _utils_cloudProvider__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../../utils/cloudProvider */ "./src/utils/cloudProvider.js");
-/* harmony import */ var _utils_searchQuery__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../../utils/searchQuery */ "./src/utils/searchQuery.js");
+/* harmony import */ var _hooks_useAnalytics__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../hooks/useAnalytics */ "./src/hooks/useAnalytics.js");
+/* harmony import */ var _CreateInstanceModal__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./CreateInstanceModal */ "./src/routes/InstancesPage/CreateInstanceModal.js");
+/* harmony import */ var _DeleteInstanceModal__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./DeleteInstanceModal */ "./src/routes/InstancesPage/DeleteInstanceModal.js");
+/* harmony import */ var _InstanceDetailsDrawer__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./InstanceDetailsDrawer */ "./src/routes/InstancesPage/InstanceDetailsDrawer.js");
+/* harmony import */ var _utils_date__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../utils/date */ "./src/utils/date.js");
+/* harmony import */ var _components_Status__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../components/Status */ "./src/components/Status.js");
+/* harmony import */ var _InstancesToolbarSearchFilter__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./InstancesToolbarSearchFilter */ "./src/routes/InstancesPage/InstancesToolbarSearchFilter.js");
+/* harmony import */ var _hooks_useTableSort__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../../hooks/useTableSort */ "./src/hooks/useTableSort.js");
+/* harmony import */ var _utils_region__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../../utils/region */ "./src/utils/region.js");
+/* harmony import */ var _utils_cloudProvider__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../../utils/cloudProvider */ "./src/utils/cloudProvider.js");
+/* harmony import */ var _utils_searchQuery__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../../utils/searchQuery */ "./src/utils/searchQuery.js");
+
 
 
 
@@ -1338,13 +1394,16 @@ function InstancesPage() {
 
   var history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useHistory)();
 
+  var _useAnalytics = (0,_hooks_useAnalytics__WEBPACK_IMPORTED_MODULE_11__["default"])(),
+      analyticsTrack = _useAnalytics.analyticsTrack;
+
   var _usePagination = (0,_hooks_usePagination__WEBPACK_IMPORTED_MODULE_6__["default"])(),
       page = _usePagination.page,
       perPage = _usePagination.perPage,
       onSetPage = _usePagination.onSetPage,
       onPerPageSelect = _usePagination.onPerPageSelect;
 
-  var _useTableSort = (0,_hooks_useTableSort__WEBPACK_IMPORTED_MODULE_17__["default"])({
+  var _useTableSort = (0,_hooks_useTableSort__WEBPACK_IMPORTED_MODULE_18__["default"])({
     sortFields: sortFields,
     defaultSortOption: defaultSortOption
   }),
@@ -1368,7 +1427,7 @@ function InstancesPage() {
       page: page,
       size: perPage,
       orderBy: "".concat(sortOption.field, " ").concat(sortOption.direction),
-      search: (0,_utils_searchQuery__WEBPACK_IMPORTED_MODULE_20__.filtersToSearchQuery)(filters)
+      search: (0,_utils_searchQuery__WEBPACK_IMPORTED_MODULE_21__.filtersToSearchQuery)(filters)
     },
     // Refetch the data every 10 seconds
     refetchInterval: 10000
@@ -1417,6 +1476,11 @@ function InstancesPage() {
     });
   }
 
+  function onCreateInstanceHandler() {
+    analyticsTrack('start-create-instance-form');
+    setCreatingInstance({});
+  }
+
   function closeCreateInstanceModal() {
     setCreatingInstance(null);
   }
@@ -1442,26 +1506,26 @@ function InstancesPage() {
 
   if (instances.length === 0 && Object.keys(filters).length === 0) {
     content = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_4__.EmptyState, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_4__.EmptyStateIcon, {
-      icon: _patternfly_react_icons_dist_js_icons_cubes_icon__WEBPACK_IMPORTED_MODULE_21__["default"]
+      icon: _patternfly_react_icons_dist_js_icons_cubes_icon__WEBPACK_IMPORTED_MODULE_22__["default"]
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_4__.Title, {
       size: "lg",
       headingLevel: "h4"
     }, "No ACS instances."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_4__.EmptyStateBody, null, "Create one to get started."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_4__.EmptyStatePrimary, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_4__.Button, {
       variant: "primary",
       onClick: function onClick() {
-        return setCreatingInstance({});
+        return onCreateInstanceHandler({});
       }
     }, "Create ACS instance")));
   } else {
     content = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement((react__WEBPACK_IMPORTED_MODULE_2___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_4__.Toolbar, {
       clearAllFilters: onClearFilters
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_4__.ToolbarContent, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_InstancesToolbarSearchFilter__WEBPACK_IMPORTED_MODULE_16__["default"], {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_4__.ToolbarContent, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_InstancesToolbarSearchFilter__WEBPACK_IMPORTED_MODULE_17__["default"], {
       filters: filters,
       setFilters: setFilters
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_4__.ToolbarItem, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_4__.Button, {
       variant: "primary",
       onClick: function onClick() {
-        return setCreatingInstance({});
+        return onCreateInstanceHandler({});
       }
     }, "Create ACS instance")), instances.length !== 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_4__.ToolbarItem, {
       variant: "pagination",
@@ -1497,7 +1561,7 @@ function InstancesPage() {
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_4__.Bullseye, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_4__.EmptyState, {
       variant: _patternfly_react_core__WEBPACK_IMPORTED_MODULE_4__.EmptyStateVariant.small
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_4__.EmptyStateIcon, {
-      icon: _patternfly_react_icons_dist_js_icons_search_icon__WEBPACK_IMPORTED_MODULE_22__["default"]
+      icon: _patternfly_react_icons_dist_js_icons_search_icon__WEBPACK_IMPORTED_MODULE_23__["default"]
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_4__.Title, {
       headingLevel: "h2",
       size: "lg"
@@ -1527,17 +1591,17 @@ function InstancesPage() {
         }
       }, instance.name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_table__WEBPACK_IMPORTED_MODULE_5__.Td, {
         dataLabel: "Cloud provider"
-      }, (0,_utils_cloudProvider__WEBPACK_IMPORTED_MODULE_19__.cloudProviderValueToLabel)(instance.cloud_provider)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_table__WEBPACK_IMPORTED_MODULE_5__.Td, {
+      }, (0,_utils_cloudProvider__WEBPACK_IMPORTED_MODULE_20__.cloudProviderValueToLabel)(instance.cloud_provider)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_table__WEBPACK_IMPORTED_MODULE_5__.Td, {
         dataLabel: "Region"
-      }, (0,_utils_region__WEBPACK_IMPORTED_MODULE_18__.regionValueToLabel)(instance.region)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_table__WEBPACK_IMPORTED_MODULE_5__.Td, {
+      }, (0,_utils_region__WEBPACK_IMPORTED_MODULE_19__.regionValueToLabel)(instance.region)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_table__WEBPACK_IMPORTED_MODULE_5__.Td, {
         dataLabel: "Owner"
       }, instance.owner), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_table__WEBPACK_IMPORTED_MODULE_5__.Td, {
         dataLabel: "Status"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_components_Status__WEBPACK_IMPORTED_MODULE_15__["default"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_components_Status__WEBPACK_IMPORTED_MODULE_16__["default"], {
         status: instance.status
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_table__WEBPACK_IMPORTED_MODULE_5__.Td, {
         dataLabel: "Time created"
-      }, (0,_utils_date__WEBPACK_IMPORTED_MODULE_14__.getDateTimeDifference)(instance.created_at)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_table__WEBPACK_IMPORTED_MODULE_5__.Td, {
+      }, (0,_utils_date__WEBPACK_IMPORTED_MODULE_15__.getDateTimeDifference)(instance.created_at)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_table__WEBPACK_IMPORTED_MODULE_5__.Td, {
         isActionCell: true
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_table__WEBPACK_IMPORTED_MODULE_5__.ActionsColumn, {
         items: [{
@@ -1569,18 +1633,18 @@ function InstancesPage() {
     })))));
   }
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_InstanceDetailsDrawer__WEBPACK_IMPORTED_MODULE_13__["default"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_InstanceDetailsDrawer__WEBPACK_IMPORTED_MODULE_14__["default"], {
     isExpanded: !!viewingInstance,
     instance: viewingInstance,
     onClose: closeInstanceDetailsDrawer
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_redhat_cloud_services_frontend_components_PageHeader__WEBPACK_IMPORTED_MODULE_23__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_redhat_cloud_services_frontend_components_PageHeader__WEBPACK_IMPORTED_MODULE_24__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_redhat_cloud_services_frontend_components_PageHeader__WEBPACK_IMPORTED_MODULE_24__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_redhat_cloud_services_frontend_components_PageHeader__WEBPACK_IMPORTED_MODULE_25__["default"], {
     title: "ACS Instances"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_redhat_cloud_services_frontend_components_Main__WEBPACK_IMPORTED_MODULE_25__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_4__.Card, null, content), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_CreateInstanceModal__WEBPACK_IMPORTED_MODULE_11__["default"], {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_redhat_cloud_services_frontend_components_Main__WEBPACK_IMPORTED_MODULE_26__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_4__.Card, null, content), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_CreateInstanceModal__WEBPACK_IMPORTED_MODULE_12__["default"], {
     isOpen: !!creatingInstance,
     onClose: closeCreateInstanceModal,
     onRequestCreate: onRequestCreate,
     cloudAccountIds: cloudAccountIds
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_DeleteInstanceModal__WEBPACK_IMPORTED_MODULE_12__["default"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_DeleteInstanceModal__WEBPACK_IMPORTED_MODULE_13__["default"], {
     instance: deletingInstance,
     isOpen: !!deletingInstance,
     onClose: closeDeleteInstanceModal,
@@ -2157,4 +2221,4 @@ function statusLabelToValue(statusLabel) {
 /***/ })
 
 }]);
-//# sourceMappingURL=../sourcemaps/InstancesPage.405dc28213f378de007785af57d753f1.js.map
+//# sourceMappingURL=../sourcemaps/InstancesPage.e5ffc25b4f031c7cb785e8dfcdb0a246.js.map
