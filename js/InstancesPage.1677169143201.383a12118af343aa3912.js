@@ -2220,4 +2220,4 @@ function statusLabelToValue(statusLabel) {
 /***/ })
 
 }]);
-//# sourceMappingURL=../sourcemaps/InstancesPage.8077be38965ad8064e6c4fc151ccaa48.js.map
+//# sourceMappingURL=../sourcemaps/InstancesPage.81ccf14e0e0a0e1841c013a15dcfc5c4.js.map
