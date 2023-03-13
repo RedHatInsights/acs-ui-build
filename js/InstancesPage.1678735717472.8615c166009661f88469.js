@@ -2015,6 +2015,9 @@ __webpack_require__.r(__webpack_exports__);
 var cloudProviders = {
   aws: 'Amazon Web Services'
 };
+var cloudProvidersShortForm = {
+  aws: 'AWS'
+};
 var cloudProviderOptions = Object.keys(cloudProviders).map(function (cloudProviderValue) {
   return {
     value: cloudProviderValue,
@@ -2022,7 +2025,7 @@ var cloudProviderOptions = Object.keys(cloudProviders).map(function (cloudProvid
   };
 });
 function cloudProviderValueToLabel(cloudProviderValue) {
-  return cloudProviders[cloudProviderValue];
+  return cloudProvidersShortForm[cloudProviderValue] ? "Hosted by Red Hat (on ".concat(cloudProvidersShortForm[cloudProviderValue], ")") : 'Hosted by Red Hat';
 }
 function cloudProviderLabelToValue(cloudProviderLabel) {
   var cloudProviderOption = cloudProviderOptions.find(function (cloudProviderOption) {
@@ -2221,4 +2224,4 @@ function statusLabelToValue(statusLabel) {
 /***/ })
 
 }]);
-//# sourceMappingURL=../sourcemaps/InstancesPage.37b4cdf8d18a4857f7858d1cf6377199.js.map
+//# sourceMappingURL=../sourcemaps/InstancesPage.20b891435f1472925093f395236d69bf.js.map
