@@ -2107,7 +2107,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var regions = {
   'us-east-1': 'US-East, N. Virginia',
-  'eu-central-1': 'Europe, Frankfurt'
+  'eu-west-1': 'Europe, Ireland'
 };
 var regionOptions = Object.keys(regions).map(function (regionValue) {
   return {
@@ -2224,4 +2224,4 @@ function statusLabelToValue(statusLabel) {
 /***/ })
 
 }]);
-//# sourceMappingURL=../sourcemaps/InstancesPage.20b891435f1472925093f395236d69bf.js.map
+//# sourceMappingURL=../sourcemaps/InstancesPage.56d9877962bc121cff00718f7f1c7532.js.map
