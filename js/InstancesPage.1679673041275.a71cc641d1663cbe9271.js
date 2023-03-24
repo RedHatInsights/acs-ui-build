@@ -2224,4 +2224,4 @@ function statusLabelToValue(statusLabel) {
 /***/ })
 
 }]);
-//# sourceMappingURL=../sourcemaps/InstancesPage.56d9877962bc121cff00718f7f1c7532.js.map
+//# sourceMappingURL=../sourcemaps/InstancesPage.253cde4af8bf4333fb5c0ce481b7f2ae.js.map
