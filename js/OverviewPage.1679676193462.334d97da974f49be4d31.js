@@ -124,10 +124,10 @@ function OverviewPage() {
     hasGutter: true
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.TextContent, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.Text, {
     component: _patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.TextVariants.h1
-  }, "Get started with Red Hat Advanced Cluster Security Managed Service for Kubernetes")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.TextContent, {
+  }, "Get started with Red Hat Advanced Cluster Security Cloud Service")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.TextContent, {
     component: _patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.TextVariants.p,
     className: "pf-u-color-200 pf-u-font-size-lg"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.Text, null, "Fully hosted and managed service for protecting cloud native applications and Kubernetes")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.TextContent, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.Text, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.Text, null, "Fully hosted cloud service for protecting cloud native applications and Kubernetes")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.TextContent, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.Text, {
     component: _patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.TextVariants.p
   }, "Red Hat\xAE Advanced Cluster Security for Kubernetes is the pioneering Kubernetes-native security platform, equipping organizations to more securely build, deploy, and run cloud-native applications anywhere. The solution helps improve the security of the application build process, protects the application platform and configurations, detects runtime issues, and facilitates response. Red Hat Advanced Cluster Security for Kubernetes lowers operational costs by reducing the learning curve for implementing Kubernetes security, provides built-in controls for enforcement to reduce operational risk, and uses a Kubernetes-native approach that supports built-in security across the entire software development life cycle, facilitating greater developer productivity.")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.GridItem, {
     span: 4
@@ -224,4 +224,4 @@ module.exports = __webpack_require__.p + "fonts/banner_image.png";
 /***/ })
 
 }]);
-//# sourceMappingURL=../sourcemaps/OverviewPage.89a44a1afc1e18f1fe0a719f525987d2.js.map
+//# sourceMappingURL=../sourcemaps/OverviewPage.cfc2bf86975c4865e1dbe9bcf43c3ab1.js.map
