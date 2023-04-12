@@ -1,10 +1,10 @@
 {
     "acs": {
         "entry": [
-            "/beta/apps/acs/acs.cb71be70b0f345eb8a44.js"
+            "/beta/apps/acs/acs.3d7cd534348f374635db.js"
         ],
         "modules": [
-            "/beta/apps/acs/js/495.cb71be70b0f345eb8a44.js",
+            "/beta/apps/acs/js/495.3d7cd534348f374635db.js",
             "/beta/apps/acs/css/495.548f6c1db081849a16c8.css"
         ]
     }
