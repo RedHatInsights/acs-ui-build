@@ -1,0 +1,11 @@
+{
+    "acs": {
+        "entry": [
+            "/beta/apps/acs/acs.d7be1eb3474e719eb588.js"
+        ],
+        "modules": [
+            "/beta/apps/acs/js/495.d7be1eb3474e719eb588.js",
+            "/beta/apps/acs/css/495.548f6c1db081849a16c8.css"
+        ]
+    }
+}
