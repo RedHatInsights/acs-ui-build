@@ -1,9 +1,14 @@
 {
   "app_name": "acs",
   "node_version": ">=14.0.0",
-  "src_repo": "RedHatInsights/acs-ui",
-  "src_branch": "prod-beta",
   "src_hash": "12d16c4e02e90d8b4a677da03a5c02f03da7c88e",
+  "src_tag": "",
+  "src_branch": "prod-beta",
   "patternfly_dependencies": ["@patternfly/react-core@4.250.1","@patternfly/react-table@4.111.33"],
-  "rh_cloud_services_dependencies": ["@redhat-cloud-services/frontend-components@3.9.34","@redhat-cloud-services/frontend-components-notifications@3.2.14","@redhat-cloud-services/frontend-components-utilities@3.3.14"],
+  "rh_cloud_services_dependencies": ["@redhat-cloud-services/frontend-components-notifications@3.2.14","@redhat-cloud-services/frontend-components-utilities@3.3.14","@redhat-cloud-services/frontend-components@3.9.34"],
+  "travis": {
+    "event_type": "push",
+    "build_number": "277",
+    "build_web_url": "https://app.travis-ci.com/RedHatInsights/acs-ui/builds/265979505"
+  }
 }
