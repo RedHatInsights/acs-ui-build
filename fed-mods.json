@@ -1,11 +1,11 @@
 {
-    "acs": {
-        "entry": [
-            "/apps/acs/acs.46051d74d72ee3e716a8.js"
-        ],
-        "modules": [
-            "/apps/acs/js/495.46051d74d72ee3e716a8.js",
-            "/apps/acs/css/495.c1b16d5ae3cb847c9130.css"
-        ]
-    }
+  "name": "acs",
+  "version": "1.0.0",
+  "extensions": [],
+  "registrationMethod": "callback",
+  "baseURL": "/apps/acs/",
+  "loadScripts": [
+    "acs.df6be7a7d46ef7e555c4.js"
+  ],
+  "buildHash": "df6be7a7d46ef7e555c429ca037d09be"
 }
