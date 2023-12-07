@@ -5,7 +5,7 @@
   "registrationMethod": "callback",
   "baseURL": "/apps/acs/",
   "loadScripts": [
-    "acs.c6859e1f0d1f7ddced31.js"
+    "acs.3fb70ca0e7386500815e.js"
   ],
-  "buildHash": "c6859e1f0d1f7ddced319559174b2b6b"
+  "buildHash": "3fb70ca0e7386500815e8efebd58e1fc"
 }
